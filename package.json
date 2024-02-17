@@ -1,6 +1,6 @@
 {
   "name": "@example/blog",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -8,10 +8,9 @@
     "build": "astro build",
     "preview": "astro preview"
   },
-  "devDependencies": {
-    "@astrojs/renderer-preact": "^0.2.1",
-    "@prismicio/client": "^5.1.0",
-    "astro": "^0.20.5",
-    "prismic-dom": "^2.2.6"
+  "dependencies": {
+    "@astrojs/node": "^8.2.0",
+    "@prismicio/client": "^7.3.1",
+    "astro": "^4.4.0"
   }
 }
