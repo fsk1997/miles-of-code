@@ -10,7 +10,7 @@ if (!previewCookie) {
   return Astro.redirect("/404");
 }
 
-// https://docs.astro.build/en/core-concepts/routing/#modifying-the-slug-example-for-ssr
+// https://docs.astro.build/en/guides/routing/#server-ssr-mode
 const { slug } = Astro.params
 const posts = await client.getAllByType('blog_post', {ref: previewCookie})
 
