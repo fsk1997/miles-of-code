@@ -1,5 +1,5 @@
 ---
-import PrismicDOM from 'prismic-dom';
+import * as prismic from "@prismicio/client";
 import { Code } from 'astro/components';
 import HeadingAndParagraph from '../components/slices/HeadingAndParagraph.astro'
 import Image from '../components/slices/Image.astro'
@@ -14,7 +14,7 @@ const { content } = Astro.props;
         case 'image': return <Image {...slice} />
         case 'twitter_card': return <TwitterCard {...slice} />;
         case 'general_card': return <GeneralCard {...slice} />;
-        case 'rich_text': return PrismicDOM.RichText.asHtml(slice.primary.rich_text);
+        case 'rich_text': return <Fragment set:html={prismic.asHTML(slice.primary.rich_text)} />
         case 'code_block': {
             const text = slice.primary.code[0].text.slice(3, -3).trim();
             let [lang, ...code] = text.split('\n');

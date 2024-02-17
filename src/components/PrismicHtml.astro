@@ -1,8 +1,7 @@
 ---
-import PrismicDOM from 'prismic-dom';
+import * as prismic from "@prismicio/client";
 const { content } = Astro.props;
 
-const html = PrismicDOM.RichText.asHtml(content);
 ---
 
-{html}
+<Fragment set:html={prismic.asHTML(content)} />

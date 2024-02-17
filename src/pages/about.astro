@@ -2,14 +2,13 @@
 // Component Imports
 import BaseHead from '../components/BaseHead.astro';
 import BlogHeader from '../components/BlogHeader.astro';
-import PrismicDOM from 'prismic-dom';
 import PrismicContent from '../components/PrismicContent.astro';
 import PrismicText from '../components/PrismicText.astro';
 import { getPage } from '../prismic.ts';
 
 const doc = await getPage('about');
 let title = doc.data.page_title;
-let permalink = Astro.request.canonicalURL.toString();
+let permalink = Astro.url.href.toString();
 ---
 <html lang="en">
   <head>
