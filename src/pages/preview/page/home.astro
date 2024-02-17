@@ -12,7 +12,7 @@ if (!previewCookie) {
   return Astro.redirect("/404");
 }
 
-const page = await client.getByUID('page', 'home', { pageSize: 1, page: 1 });
+const page = await client.getByUID('page', 'home', { pageSize: 1, page: 1, ref: previewCookie });
 
 if (!page) return Astro.redirect("/404");
 
