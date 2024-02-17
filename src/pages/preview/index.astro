@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Preview route</title>
+    <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=astro-prismic-demo"></script>
+    <script type="module">
+      import { createClient } from "https://cdn.skypack.dev/@prismicio/client";
+
+      const init = async () => {
+        const defaultURL = "/";
+
+        // https://prismic.io/docs/preview-drafts-vanilla-javascript
+        const url = await createClient("astro-prismic-demo",)
+            .resolvePreviewURL({
+          linkResolver: (doc) => {
+            if (doc.isBroken) {
+              return "/404";
+            } else if (doc.type === "blog_post") {
+              return `/preview/posts/${doc.uid}`;
+            } else if (doc.type === "page" && doc.uid === "home") {
+                return `/preview/${doc.uid}`;
+            } else if (doc.type === "page" && doc.uid === "about") {
+                return `/preview/${doc.uid}`;
+            }
+            // add more pages (a.k.a redirects) ...
+            return defaultURL;
+          },
+          defaultURL: defaultURL,
+        });
+
+        window.location.replace(url);
+      };
+      init();
+    </script>
+  </head>
+  <body>
+    <h1>Loading Preview...</h1>
+  </body>
+</html>

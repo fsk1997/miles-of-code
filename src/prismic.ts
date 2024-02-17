@@ -1,7 +1,7 @@
 import * as prismic from "@prismicio/client";
 const API_ENDPOINT = "https://astro-prismic-demo.prismic.io/api/v2";
 
-const client = prismic.createClient(API_ENDPOINT);
+export const client = prismic.createClient(API_ENDPOINT);
 
 export async function getAllPosts() {
     return client.getAllByType('blog_post');
